@@ -1,0 +1,8 @@
+function metric = updateMetric(metric, drone, currentNbOfSteps)
+    [~, ~, Widx, Widy] = Arredondamento(metric.originalgmPDF, drone.State(1), drone.State(1));
+
+    metric.visitedValuesArray(currentNbOfSteps) = metric.originalgmPDF.values(Widy, Widx);
+    metric.meanVisiting(currentNbOfSteps) = mean(nonzeros(metric.visitedValuesArray);
+    metric.stdVisiting(currentNbOfSteps) = std(metric.visitedValuesArray);
+    metric.sum(currentNbOfSteps) = sum(metric.visitedValuesArray);
+end
